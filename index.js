@@ -33,4 +33,17 @@ function squareTrail(e) {
   e.target.classList.add('shadow');
 }
 
+function configureGrid() {
+  console.log('configureGrid')
+  let gridSize = +prompt('Enter a grid size smaller than 100');
+  if(gridSize > 0 && gridSize <= 100) {
+    createGrid(gridSize);
+  } else {
+    configureGrid()
+  }
+}
+
+document.querySelector('#setup>button').addEventListener('click', configureGrid);
+
+
 createGrid(10)

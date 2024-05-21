@@ -13,6 +13,17 @@ h1 {
   text-align: center;
 }
 
+button {
+  padding: 16px 32px;
+  background-color: rgb(4, 4, 129);
+  color: rgb(226, 226, 231);
+  border-radius: 8px;
+  border: none;
+  margin: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 #container {
   width: 800px;
   height: 800px;
