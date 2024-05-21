@@ -8,7 +8,7 @@ function clearContainer() {
   document.getElementById("container").innerHTML = ""
 }
 
-function createGrid(size) {
+function createGrid(size = 50) {
   const SQUARE_BORDER_SIZE = 1;
 
   clearContainer();
@@ -23,13 +23,14 @@ function createGrid(size) {
     let sizePx = squareSize + "px";
     square.style.width = sizePx; 
     square.style['border-width'] = squareBorderWidth;
-    // square.style.height = sizePx;
     square.classList.add('square');
-    
+    square.addEventListener('mouseenter',squareTrail);
     container.appendChild(square);
   }
-  
+}
 
+function squareTrail(e) {
+  e.target.classList.add('shadow');
 }
 
 createGrid(10)

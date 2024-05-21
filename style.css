@@ -14,8 +14,8 @@ h1 {
 }
 
 #container {
-  width: 960px;
-  height: 960px;
+  width: 800px;
+  height: 800px;
   padding: 0;
   border: 10px solid rgb(2, 2, 37);
   display: flex;
@@ -29,4 +29,8 @@ h1 {
   padding: 0;
   border-color: rgba(2, 2, 37, 0.1);
   border-style: solid;
+}
+
+.shadow {
+  background-color: rgb(163, 163, 175);
 }
