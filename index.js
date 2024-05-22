@@ -1,18 +1,14 @@
-console.log("Etch-a-Sketch")
-function roundedToFixed(input, digits){
-  var rounder = Math.pow(10, digits);
-  return (Math.round(input * rounder) / rounder).toFixed(digits);
-}
+const SHADOW_TRAILER = 'shadow';
+const RANDOM_TRAILER  = 'random';
 
 function clearContainer() {
   document.getElementById("container").innerHTML = ""
 }
 
 function createGrid(size = 50) {
-  const SQUARE_BORDER_SIZE = 1;
-
   clearContainer();
   
+  const SQUARE_BORDER_SIZE = 1;
   let container = document.getElementById("container");
   let containerSize = container.clientWidth;
   let squareBorderWidth = `${SQUARE_BORDER_SIZE}px`;
@@ -24,13 +20,30 @@ function createGrid(size = 50) {
     square.style.width = sizePx; 
     square.style['border-width'] = squareBorderWidth;
     square.classList.add('square');
-    square.addEventListener('mouseenter',squareTrail);
+    square.addEventListener('mouseenter', e => setSquareTrail(e.target, SHADOW_TRAILER));
     container.appendChild(square);
   }
 }
 
-function squareTrail(e) {
-  e.target.classList.add('shadow');
+function getRandomColorValue() {
+  return Math.floor(Math.random() * 256);
+}
+
+function getRandomColor() {
+  return `rgb(${getRandomColorValue()}, ${getRandomColorValue()}, ${getRandomColorValue()})`
+}
+
+function setSquareTrail(squareElement, trail) {
+  if(trail === SHADOW_TRAILER) {
+    squareElement.style.backgroundColor = 'black';
+    let opacity = +squareElement.style.opacity || 0;
+    opacity += 0.1;
+    squareElement.style.opacity = opacity;
+  } else if (trail === RANDOM_TRAILER) {
+    squareElement.style.backgroundColor = getRandomColor();
+  } else {
+    squareElement.style.backgroundColor = 'rgb(163, 163, 175)';
+  }
 }
 
 function configureGrid() {
@@ -43,7 +56,6 @@ function configureGrid() {
   }
 }
 
-document.querySelector('#setup>button').addEventListener('click', configureGrid);
-
+document.getElementById('grid-size').addEventListener('click', configureGrid);
 
 createGrid(10)
