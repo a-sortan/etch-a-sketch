@@ -2,11 +2,13 @@
   /* box-sizing: border-box; */
 }
 
-html {
+body {
   color: rgb(2, 2, 37);
   background-color: rgb(226, 226, 231);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -38,10 +40,6 @@ button {
 .square {
   margin: 0;
   padding: 0;
-  border-color: rgba(2, 2, 37, 0.1);
+  border-color: rgb(205, 205, 214);
   border-style: solid;
-}
-
-.shadow {
-  background-color: rgb(163, 163, 175);
 }
